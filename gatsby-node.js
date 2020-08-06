@@ -57,7 +57,7 @@ exports.createPages = ({ graphql, actions}) => {
         imageEdges.forEach(edge => {
             const name = parseName(edge.node.absolutePath)
             /* Infer photographer attribution from name. */
-            const title = name.endsWith("_v") ? "Conditional attribution caption" : "Photo from Unsplash"
+            const title = name.substring(name.lastIndexOf('/') + 1)
             
             /* Use thumbnail from crop helper if that's available. */ 
             const key = name+"_crophelper"

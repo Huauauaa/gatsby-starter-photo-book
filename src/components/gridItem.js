@@ -36,7 +36,17 @@ class GridItem extends React.Component {
                 href={`/images/${props.item.id}`}
                 onClick={e => this.handleNavigation(e)}
               >
-                <img src={props.item.thumb.src} alt="" title="" />
+                <img
+                  src={props.item.thumb.src}
+                  alt={props.item.thumb.src.substring(
+                    props.item.thumb.src.lastIndexOf('/') + 1,
+                    props.item.thumb.src.lastIndexOf('.'),
+                  )}
+                  title={decodeURI(props.item.thumb.src.substring(
+                    props.item.thumb.src.lastIndexOf('/') + 1,
+                    props.item.thumb.src.lastIndexOf('.'),
+                  ))}
+                />
               </a>
             </>
           )}
